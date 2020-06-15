@@ -1,0 +1,72 @@
+{
+    "id": "approvalform",
+    "schemaVersion": "1.0.0",
+    "name": "ApprovalForm",
+    "revision": "1.0",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "businesspartner",
+            "type": "string",
+            "label": "BusinessPartner",
+            "readOnly": true,
+            "value": "${context.request.BusinessPartner}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "_context_request_businesspartner_",
+            "type": "string",
+            "label": "Country",
+            "readOnly": true,
+            "value": "${context.request.Country}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "postalcode",
+            "type": "string",
+            "label": "PostalCode",
+            "readOnly": false,
+            "value": "${context.request.PostalCode}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "streetname",
+            "type": "string",
+            "label": "StreetName",
+            "readOnly": false,
+            "value": "${context.request.StreetName}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "housenumber",
+            "type": "string",
+            "label": "HouseNumber",
+            "readOnly": false,
+            "value": "${context.request.HouseNumber}",
+            "constraints": {
+                "required": false
+            }
+        }
+    ],
+    "decisions": [
+        {
+            "id": "approve",
+            "text": "Approve",
+            "decisionType": "positive"
+        },
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        }
+    ]
+}

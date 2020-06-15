@@ -1,0 +1,68 @@
+{
+    "id": "requestform",
+    "schemaVersion": "1.0.0",
+    "name": "RequestForm",
+    "revision": "1.0",
+    "type": "start",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "businesspartner",
+            "type": "string",
+            "label": "BusinessPartner",
+            "readOnly": false,
+            "value": "${context.request.BusinessPartner}",
+            "constraints": {
+                "required": true
+            }
+        },
+        {
+            "id": "country",
+            "type": "string",
+            "label": "Country",
+            "readOnly": false,
+            "value": "${context.request.Country}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "postalcode",
+            "type": "string",
+            "label": "PostalCode",
+            "readOnly": false,
+            "value": "${context.request.PostalCode}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "streetname",
+            "type": "string",
+            "label": "StreetName",
+            "readOnly": false,
+            "value": "${context.request.StreetName}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "housenumber",
+            "type": "string",
+            "label": "HouseNumber",
+            "readOnly": false,
+            "value": "${context.request.HouseNumber}",
+            "constraints": {
+                "required": false
+            }
+        }
+    ],
+    "actions": [
+        {
+            "id": "action1",
+            "text": "request",
+            "workflowDefinitionId": "first_workflow",
+            "workflowPath": "/home/user/projects/workflow_project/workflow/workflows/first_workflow.workflow"
+        }
+    ]
+}
