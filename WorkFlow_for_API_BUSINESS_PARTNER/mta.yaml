@@ -1,0 +1,17 @@
+_schema-version: "3.2"
+ID: workflow_project
+version: 0.0.1
+modules:
+  - name: workflow
+    type: com.sap.application.content
+    path: workflow
+    requires:
+      - name: workflow_instance
+        parameters:
+          content-target: true
+resources:
+  - name: workflow_instance
+    parameters:
+      service-plan: standard
+      service: workflow
+    type: org.cloudfoundry.existing-service
