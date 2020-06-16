@@ -112,6 +112,24 @@
 			"id": "servicetask7",
 			"name": "ServiceTask7"
 		},
+		"188330da-99f9-49eb-8c45-3944d98efc13": {
+			"classDefinition": "com.sap.bpm.wfs.UserTask",
+			"subject": "Approve",
+			"priority": "VERY_HIGH",
+			"isHiddenInLogForParticipant": false,
+			"userInterface": "sapui5://comsapbpmworkflow.comsapbpmwusformplayer/com.sap.bpm.wus.form.player",
+			"recipientUsers": "allen.ck.li@ibm.com",
+			"formReference": "/forms/first_workflow/ApprovalForm.form",
+			"userInterfaceParams": [{
+				"key": "formId",
+				"value": "approvalform"
+			}, {
+				"key": "formRevision",
+				"value": "1.0"
+			}],
+			"id": "usertask2",
+			"name": "UserTask2"
+		},
 		"c6b99f32-5fe6-4ab6-b60a-80fba1b9ae0f": {
 			"classDefinition": "com.sap.bpm.wfs.SequenceFlow",
 			"id": "sequenceflow1",
@@ -162,6 +180,13 @@
 			"name": "SequenceFlow24",
 			"sourceRef": "6f9fc745-ce89-47e2-b764-e21d7f658e0d",
 			"targetRef": "372864d6-415e-4bf0-814f-c891e619605b"
+		},
+		"da74d115-f5d9-4f9c-8264-db10d0d8851a": {
+			"classDefinition": "com.sap.bpm.wfs.SequenceFlow",
+			"id": "sequenceflow25",
+			"name": "SequenceFlow25",
+			"sourceRef": "188330da-99f9-49eb-8c45-3944d98efc13",
+			"targetRef": "8d94eb66-5c73-4302-9a19-c451fd6a15fc"
 		},
 		"42fa7a2d-c526-4a02-b3ba-49b5168ba644": {
 			"classDefinition": "com.sap.bpm.wfs.ui.Diagram",
@@ -287,6 +312,21 @@
 			"targetSymbol": "aafdf190-b331-4c19-914f-8b57711b230b",
 			"object": "964acec2-afcb-4af0-a05c-b4ccb85c3ca5"
 		},
+		"87cf6825-f4eb-4af7-be60-af7be349e67f": {
+			"classDefinition": "com.sap.bpm.wfs.ui.UserTaskSymbol",
+			"x": 94,
+			"y": 67,
+			"width": 100,
+			"height": 60,
+			"object": "188330da-99f9-49eb-8c45-3944d98efc13"
+		},
+		"49290953-6744-4753-bd0f-ffab8fdc1b51": {
+			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
+			"points": "194,97 244,97",
+			"sourceSymbol": "87cf6825-f4eb-4af7-be60-af7be349e67f",
+			"targetSymbol": "9b8c2d87-9f00-468d-80c6-4e50556d5d79",
+			"object": "da74d115-f5d9-4f9c-8264-db10d0d8851a"
+		},
 		"62d7f4ed-4063-4c44-af8b-39050bd44926": {
 			"classDefinition": "com.sap.bpm.wfs.LastIDs",
 			"timereventdefinition": 2,
@@ -306,7 +346,7 @@
 		"8f249b7b-10f0-420c-af00-971987276e71": {
 			"classDefinition": "com.sap.bpm.wfs.MailDefinition",
 			"name": "maildefinition1",
-			"to": "r03323037@ntu.edu.tw",
+			"to": "${context.mailreceiver}",
 			"subject": "Accept",
 			"text": "Your request has been approved by ${context.approver}",
 			"id": "maildefinition1"
@@ -314,50 +354,10 @@
 		"cb53836a-420d-4901-9654-8e374095af50": {
 			"classDefinition": "com.sap.bpm.wfs.MailDefinition",
 			"name": "maildefinition2",
-			"to": "r03323037@ntu.edu.tw",
+			"to": "${context.mailreceiver}",
 			"subject": "Reject",
 			"text": "Your request has been rejected by ${context.approver}",
 			"id": "maildefinition2"
-		},
-		"188330da-99f9-49eb-8c45-3944d98efc13": {
-			"classDefinition": "com.sap.bpm.wfs.UserTask",
-			"subject": "Approve",
-			"priority": "VERY_HIGH",
-			"isHiddenInLogForParticipant": false,
-			"userInterface": "sapui5://comsapbpmworkflow.comsapbpmwusformplayer/com.sap.bpm.wus.form.player",
-			"recipientUsers": "allen.ck.li@ibm.com",
-			"formReference": "/forms/first_workflow/ApprovalForm.form",
-			"userInterfaceParams": [{
-				"key": "formId",
-				"value": "approvalform"
-			}, {
-				"key": "formRevision",
-				"value": "1.0"
-			}],
-			"id": "usertask2",
-			"name": "UserTask2"
-		},
-		"87cf6825-f4eb-4af7-be60-af7be349e67f": {
-			"classDefinition": "com.sap.bpm.wfs.ui.UserTaskSymbol",
-			"x": 94,
-			"y": 67,
-			"width": 100,
-			"height": 60,
-			"object": "188330da-99f9-49eb-8c45-3944d98efc13"
-		},
-		"da74d115-f5d9-4f9c-8264-db10d0d8851a": {
-			"classDefinition": "com.sap.bpm.wfs.SequenceFlow",
-			"id": "sequenceflow25",
-			"name": "SequenceFlow25",
-			"sourceRef": "188330da-99f9-49eb-8c45-3944d98efc13",
-			"targetRef": "8d94eb66-5c73-4302-9a19-c451fd6a15fc"
-		},
-		"49290953-6744-4753-bd0f-ffab8fdc1b51": {
-			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
-			"points": "194,97 244,97",
-			"sourceSymbol": "87cf6825-f4eb-4af7-be60-af7be349e67f",
-			"targetSymbol": "9b8c2d87-9f00-468d-80c6-4e50556d5d79",
-			"object": "da74d115-f5d9-4f9c-8264-db10d0d8851a"
 		}
 	}
 }

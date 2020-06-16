@@ -32,14 +32,10 @@ var users = $.usertasks.usertask2.last.recipientUsers;
 var user = users[0];
 $.context.approver = user;
 
+var mailreceiver = $.info.startedBy;
+$.context.mailreceiver = mailreceiver;
 
-var businesspartner = '10100001';
-var country = 'TW';
-var postalcode = '11073';
-var streetname = 'TT';
-var housenumber = '7';
-
-$.context.businesspartner = businesspartner;
+$.context.businesspartner = undefined;
 $.context.body = undefined;
 
 
@@ -51,4 +47,5 @@ StreetName : $.context.request.StreetName,
 HouseNumber : $.context.request.HouseNumber
 };
 
+$.context.businesspartner = $.context.request.BusinessPartner;
 $.context.body = body;
